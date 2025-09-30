@@ -1,0 +1,36 @@
+﻿@model IEnumerable<LTWeb_Tuan05_Bai01.Models.Department>
+
+@{
+    ViewBag.Title = "HienThiPhongBan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>HienThiPhongBan</h2>
+
+<p>
+    @Html.ActionLink("Them moi phong ban moi", "AddNew_PhongBan")
+</p>
+
+<table class="table table-striped border">
+    <thead>
+        <tr>
+            <th>Ma phong</th><th>Ten phong</th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MaPg)</td>
+                <td>@Html.DisplayFor(modelItem => item.TenPhong)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit_PhongBan", new { id = item.MaPg }) |
+                    @Html.ActionLink("Detail", "Detail_PhongBan", new { id = item.MaPg }) |
+                    @Html.ActionLink("Delete", "Delete_PhongBan", new { id = item.MaPg })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

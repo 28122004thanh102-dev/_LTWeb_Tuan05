@@ -1,0 +1,33 @@
+﻿@model LTWeb_Tuan05_Bai01.ViewModels.DepartmentViewModel
+
+@{
+    ViewBag.Title = "Detail_PhongBan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiet phong ban</h2>
+
+<p><b>Ma PB:</b> @Model.Department.MaPg</p>
+<p><b>Ten PB:</b> @Model.Department.TenPhong</p>
+
+<table class="table table-striped border">
+    <thead>
+        <tr>
+            <th>Ma nhan vien</th>
+            <th>Ten nhan vien</th>
+            <th>Gioi tinh</th>
+            <th>Tinh/Thanh pho</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Employees)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.MaNV)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ten)</td>
+                <td>@Html.DisplayFor(modelItem => item.GioiTinh)</td>
+                <td>@Html.DisplayFor(modelItem => item.Tinh)</td>
+            </tr>
+        }
+    </tbody>
+</table>
